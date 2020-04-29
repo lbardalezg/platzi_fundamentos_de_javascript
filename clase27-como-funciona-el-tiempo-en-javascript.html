@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 27 - Cómo funciona el tiempo en JavaScript</title>
+</head>
+<body>
+    <script>
+        console.log('a');
+        // Aunque la llamada con setTimeout
+        // tiene tiempo cero, se ejecuta luego
+        // que todo el código principal haya sido
+        // ejecutado
+        setTimeout(() => {
+            console.log('b');
+        }, 0);
+        console.log('c');
+        // El timeout de 2000 es el mínimo deseado,
+        // ya que el resto de código podría estar
+        // bloqueando la ejecución y haciendo que
+        // se retrase más del tiempo requerido
+        setTimeout(() => {
+            console.log('d')
+        }, 2000);
+        // En este caso, el siguiente bucle cuelga
+        // la ejecución, haciendo que los timeouts
+        // no puedan ser llamados.
+        /*
+        for(var i=0; i<1000000000; i++) {
+            var a = 1;
+        }
+        */
+    </script>
+</body>
+</html>
